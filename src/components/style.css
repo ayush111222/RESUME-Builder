@@ -1,0 +1,22 @@
+.box {
+    padding: 1rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+.items {
+    padding: 0 2rem;
+}
+
+.item {
+    font-size: 1.1rem;
+}
+
+.print__btn {
+    display: block;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    cursor: pointer;
+}

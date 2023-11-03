@@ -1,0 +1,38 @@
+.skills__form input {
+    padding: 0.5rem;
+    width: 70%;
+}
+
+.skills__form button {
+    width: 30%;
+    padding: 0.5rem;
+    margin: 0.2rem auto;
+    cursor: pointer;
+}
+
+.Education__form input {
+    padding: 0.5rem;
+    width: 70%;
+}
+
+.Education__form button {
+    width: 30%;
+    padding: 0.5rem;
+    margin: 0.2rem auto;
+    cursor: pointer;
+}
+
+.Experience__form input {
+    padding: 0.5rem;
+    width: 35%;
+}
+.Experience__form input::placeholder {
+    font-size: 0.7500rem;
+}
+
+.Experience__form button {
+    width: 30%;
+    padding: 0.5rem;
+    margin: 0.2rem auto;
+    cursor: pointer;
+}

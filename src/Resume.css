@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 50rem;
+  width: 90%;
+  background: wheat;
+  min-height: 100vh;
+}
+
+.heading {
+  border-bottom: 1px solid black;
+  padding: 0.5rem 1rem;
+}
+
+.dark {
+  background: black;
+  color: white;
+}
+
+.resume__form__container {
+  padding: 1rem;
+}
