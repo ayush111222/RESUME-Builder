@@ -16,7 +16,7 @@ function Resume() {
   function resumeReducer(state, action) {
     let updatedResume = { ...state };
     const newExperienceArray = Object.entries(state.experience[0]).map((item) =>
-    item.join(":- ")
+      item.join(":- ")
     );
     switch (action.type) {
       case "ADD_SKILL": {
@@ -78,15 +78,29 @@ function Resume() {
         };
       }
 
-      case "UPDATE": {
+      case "UPDATE_SKILL": {
         if (state.skills.find((i) => i === editableItems)) {
           const index = state.skills.findIndex((i) => i === editableItems);
           updatedResume.skills.splice(index, 1, action.playload);
-        } else if (state.education.find((i) => i === editableItems)) {
+        }
+        setEditableItems(null);
+        return updatedResume;
+      }
+
+      case "UPDATE_EDUCATION": {
+        if (state.education.find((i) => i === editableItems)) {
           const index = state.education.findIndex((i) => i === editableItems);
           updatedResume.education.splice(index, 1, action.playload);
-        } else if (newExperienceArray.find((i) => i === editableItems)) {
-          const item2 = Object.entries(action.playload).map((item) => item.join(":- "));
+        }
+        setEditableItems(null);
+        return updatedResume;
+      }
+
+      case "UPDATE_EXPERIENCE": {
+        if (newExperienceArray.find((i) => i === editableItems)) {
+          const item2 = Object.entries(action.playload).map((item) =>
+            item.join(":- ")
+          );
           const itemToString = item2.toString();
           const index = newExperienceArray.findIndex(
             (i) => i === editableItems
@@ -100,8 +114,8 @@ function Resume() {
         }
         setEditableItems(null);
         return updatedResume;
-      } 
-
+      }
+     
       default: {
         return state;
       }
@@ -109,11 +123,11 @@ function Resume() {
   }
 
   const [resume, dispatch] = useReducer(resumeReducer, intialState);
-  console.log(resume.skills)
+  
   function editItems(item) {
-    const newExperienceArray = Object.entries(resume.experience[0]).map((item) =>
-    item.join(":- ")
-  );
+    const newExperienceArray = Object.entries(resume.experience[0]).map(
+      (item) => item.join(":- ")
+    );  
     if (resume.skills.find((i) => i === item)) {
       setEditableItems(resume.skills.find((i) => i === item));
     } else if (resume.education.find((i) => i === item)) {
@@ -122,7 +136,7 @@ function Resume() {
       setEditableItems(newExperienceArray.find((i) => i === item));
     }
   }
- 
+
   return (
     <>
       <div className={`container`}>

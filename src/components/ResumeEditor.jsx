@@ -34,7 +34,7 @@ export default function ResumeEditor({
     e.preventDefault();
     if (e.target.className === "skills__form") {
       if (editableItems) {
-        dispatch({type:"UPDATE", playload: addSkill})
+        dispatch({type:"UPDATE_SKILL", playload: addSkill})
       } else {
         dispatch({type:"ADD_SKILL", playload: addSkill})
       }
@@ -42,7 +42,7 @@ export default function ResumeEditor({
       setPrevEditableItems(null);
     } else if (e.target.className === "Education__form") {
       if (editableItems) {
-        dispatch({type:"UPDATE", playload: addEducation})
+        dispatch({type:"UPDATE_EDUCATION", playload: addEducation})
       } else {
         dispatch({type:"ADD_EDUCATION", playload: addEducation})
       }
@@ -51,7 +51,7 @@ export default function ResumeEditor({
     } else if (e.target.className === "Experience__form") {
       if (addExperienceInfo && addExperienceDetails) {
         if (editableItems) {
-          dispatch({type:"UPDATE", playload: addExperience})
+          dispatch({type:"UPDATE_EXPERIENCE", playload: addExperience})
         } else {
           dispatch({type:"ADD_EXPERIENCE", playload: addExperience})
         }
