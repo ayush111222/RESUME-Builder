@@ -1,6 +1,6 @@
 import "./style.css";
 
-function Experience({ experience, deleteItems, editItems }) {
+function Experience({ experience, dispatch, editItems }) {
   const newArray = experience.slice(0, 10);
 
   return (
@@ -14,7 +14,7 @@ function Experience({ experience, deleteItems, editItems }) {
               return (
                 <li className="item" key={item}>
                   {joined}{" "}
-                  <button onClick={() => deleteItems(joined)}>X</button>{" "}
+                  <button onClick={() => dispatch({type: "DELETE_EXPERIENCE", playload: joined})}>X</button>{" "}
                   <button onClick={() => editItems(joined)}>edit</button>
                 </li>
               );

@@ -1,5 +1,5 @@
 import "./style.css";
-function Skills({ skills, deleteItems, editItems }) {
+function Skills({ skills, dispatch, editItems}) {
   const newArray = skills.slice(0, 10);
   return (
     <>
@@ -10,7 +10,7 @@ function Skills({ skills, deleteItems, editItems }) {
             {newArray.map((item) => {
               return (
                 <li className="item" key={item}>
-                  {item} <button onClick={() => deleteItems(item)}>X</button>{" "}
+                  {item} <button onClick={() => dispatch({type: "DELETE_SKILL", playload:item})}>X</button>{" "}
                   <button onClick={() => editItems(item)}>edit</button>
                 </li>
               );

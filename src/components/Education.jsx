@@ -1,6 +1,6 @@
 import "./style.css";
 
-function Education({ education, deleteItems, editItems }) {
+function Education({ education, dispatch, editItems }) {
   const newArray = education.slice(0, 10);
 
   return (
@@ -12,7 +12,7 @@ function Education({ education, deleteItems, editItems }) {
             {newArray.map((item) => {
               return (
                 <li className="item" key={item}>
-                  {item} <button onClick={() => deleteItems(item)}>X</button>{" "}
+                  {item} <button onClick={() => dispatch({type: "DELETE_EDUCATION", playload:item})}>X</button>{" "}
                   <button onClick={() => editItems(item)}>edit</button>
                 </li>
               );

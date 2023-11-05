@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "./ResumeEditor.css";
 export default function ResumeEditor({
-  addResume,
+  dispatch,
   editableItems,
-  updateResume,
   resume,
 }) {
   const [addSkill, setSkill] = useState("");
@@ -35,26 +34,26 @@ export default function ResumeEditor({
     e.preventDefault();
     if (e.target.className === "skills__form") {
       if (editableItems) {
-        updateResume(addSkill);
+        dispatch({type:"UPDATE", playload: addSkill})
       } else {
-        addResume(addSkill, "", "");
+        dispatch({type:"ADD_SKILL", playload: addSkill})
       }
       setSkill("");
       setPrevEditableItems(null);
     } else if (e.target.className === "Education__form") {
       if (editableItems) {
-        updateResume(addEducation);
+        dispatch({type:"UPDATE", playload: addEducation})
       } else {
-        addResume("", addEducation, "");
+        dispatch({type:"ADD_EDUCATION", playload: addEducation})
       }
       setEducation("");
       setPrevEditableItems(null);
     } else if (e.target.className === "Experience__form") {
       if (addExperienceInfo && addExperienceDetails) {
         if (editableItems) {
-          updateResume(addExperience);
+          dispatch({type:"UPDATE", playload: addExperience})
         } else {
-          addResume("", "", addExperience);
+          dispatch({type:"ADD_EXPERIENCE", playload: addExperience})
         }
         setAddExperienceInfo("");
         setAddExperienceDetails("");
